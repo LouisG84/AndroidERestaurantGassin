@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -109,6 +111,21 @@ class ActivityMeal : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_toolbar, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle presses on the action bar menu items
+        when (item.itemId) {
+            R.id.panier -> {
+                Toast.makeText(this@ActivityMeal, "Panier", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.bluetooth -> {
+                Toast.makeText(this@ActivityMeal, "Bluetooth", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

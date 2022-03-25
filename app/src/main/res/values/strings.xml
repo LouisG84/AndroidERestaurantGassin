@@ -7,6 +7,7 @@
     <string name="button_plat">Plats</string>
     <string name="button_dessert">Desserts</string>
     <string name="category">Catégorie</string>
+    <string name="bon_appetit">Buon appetito!</string>
     <string-array name="items_list">
         <item>Pizza</item>
         <item>Pâtes</item>
