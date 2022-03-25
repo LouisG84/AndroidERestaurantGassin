@@ -1,12 +1,13 @@
 package fr.isen.gassin.androiderestaurant
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.Menu
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import fr.isen.gassin.androiderestaurant.databinding.ActivityHomeBinding
+
 
 class ActivityHome : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -20,16 +21,16 @@ class ActivityHome : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.title = "Accueil" // titre accueil
 
-        binding.BoutonEntree.setOnClickListener{
-            goToCategory(getString(R.string.bouton_entree))
+        binding.buttonEntree.setOnClickListener{
+            goToCategory(getString(R.string.button_entree))
         }        
         
-        binding.BoutonPlats.setOnClickListener{
-            goToCategory(getString(R.string.bouton_plat))
+        binding.buttonPlats.setOnClickListener{
+            goToCategory(getString(R.string.button_plat))
         }
 
-        binding.BoutonDesserts.setOnClickListener{
-            goToCategory(getString(R.string.bouton_dessert))
+        binding.buttonDesserts.setOnClickListener{
+            goToCategory(getString(R.string.button_dessert))
         }
     }
 
@@ -48,5 +49,12 @@ class ActivityHome : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("home","ondestroy called")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu to use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_toolbar, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

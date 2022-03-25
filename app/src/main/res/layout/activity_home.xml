@@ -7,25 +7,24 @@
     tools:context=".ActivityHome">
 
     <TextView
-        android:id="@+id/BoutonEntree"
+        android:id="@+id/buttonEntree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/bouton_entree"
+        android:text="@string/button_entree"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/BoutonPlats"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPlats"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.90999997" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/BoutonPlats"
+        android:id="@+id/buttonPlats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/bouton_plat"
+        android:text="@string/button_plat"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,35 +34,23 @@
         app:layout_constraintVertical_bias="0.63" />
 
     <TextView
-        android:id="@+id/BoutonDesserts"
+        android:id="@+id/buttonDesserts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/bouton_dessert"
+        android:text="@string/button_dessert"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BoutonPlats"
-        app:layout_constraintVertical_bias="0.19999999" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlats" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="225dp"
         android:layout_height="307dp"
-        app:layout_constraintBottom_toTopOf="@+id/BoutonEntree"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEntree"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -35,7 +35,7 @@ internal class CategoryAdapter(val data: ArrayList<Item>, val clickListener: (It
         Picasso.get()
             .load(url.ifEmpty{null})
             .placeholder(R.drawable.mister_v)
-            .fit()
+            .fit().centerCrop()
             .into(holder.image)
 
 
