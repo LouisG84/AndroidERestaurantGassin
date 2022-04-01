@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/buttonEcrire"
+        android:layout_width="89dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/buttonLire"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="Ecrire" />
+
+    <Button
+        android:id="@+id/buttonNotif"
+        android:layout_width="89dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/buttonEcrire"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="Notif" />
+
+    <TextView
+        android:id="@+id/characteristicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="characteristic Name" />
+
+    <TextView
+        android:id="@+id/characteristicUuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicName"
+        tools:text="characteristic UUID" />
+
+    <Button
+        android:id="@+id/buttonLire"
+        android:layout_width="89dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="Lire" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

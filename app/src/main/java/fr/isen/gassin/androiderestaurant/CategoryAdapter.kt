@@ -1,5 +1,6 @@
 package fr.isen.gassin.androiderestaurant
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,19 +18,21 @@ internal class CategoryAdapter(val data: ArrayList<Item>, val clickListener: (It
 
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var itemTextView: TextView = view.findViewById(R.id.categoryTitle)
+        var priceTextView: TextView = view.findViewById(R.id.priceCellcategory)
         val image: ImageView = view.findViewById(R.id.imageViewSelect)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.cell_category, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.cell_category, parent, false)
         return MyViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         Log.i("XXX","onBindViewHolder")
         val item = data[position]
         holder.itemTextView.text = item.name_fr
+        holder.priceTextView.text = item.prices[0].price.toString() + "€"
 
         val url = item.images[0]
         Picasso.get()

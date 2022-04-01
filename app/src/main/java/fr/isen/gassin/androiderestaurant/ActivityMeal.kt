@@ -31,9 +31,9 @@ class ActivityMeal : AppCompatActivity() {
         setContentView(view)
 
 
-
         val actionBar = supportActionBar
-        val categoryName = intent.getStringExtra("category") // recupere valeur stocké dans "category"
+        val categoryName =
+            intent.getStringExtra("category") // recupere valeur stocké dans "category"
         actionBar!!.title = categoryName // affiche nom categorie en haut
         binding.category.text = categoryName // affiche nom categorie en titre
 
@@ -45,11 +45,12 @@ class ActivityMeal : AppCompatActivity() {
             intent.putExtra(ITEM_KEY, it)
             startActivity(intent)
         }
-        getDataFromApi(intent.getStringExtra("category")?:"")
+
+        getDataFromApi(intent.getStringExtra("category") ?: "")
         //loadDataFromServer()
     }
 
-    private fun getDataFromApi(category : String){
+    private fun getDataFromApi(category: String) {
         val queue = Volley.newRequestQueue(this)
         val url = "http://test.api.catering.bluecodegames.com/menu"
         val json = JSONObject()
@@ -57,7 +58,7 @@ class ActivityMeal : AppCompatActivity() {
         json.toString()
         val requestBody = json.toString()
 
-        val stringReq : StringRequest =
+        val stringReq: StringRequest =
             object : StringRequest(Method.POST, url,
                 { response ->
                     // response
@@ -65,7 +66,8 @@ class ActivityMeal : AppCompatActivity() {
                     Log.d("API", strResp)
                     val dataResult = Gson().fromJson(strResp, DataResult::class.java)
 
-                    val items = dataResult.data.firstOrNull{ it.name_fr == category }?.items ?: arrayListOf()
+                    val items = dataResult.data.firstOrNull { it.name_fr == category }?.items
+                        ?: arrayListOf()
                     binding.itemsList.adapter = CategoryAdapter(items) {
                         val intent = Intent(this, DetailActivity::class.java)
                         intent.putExtra(ITEM_KEY, it)// Recupere et stocke dans ITEM_KEY
@@ -76,7 +78,7 @@ class ActivityMeal : AppCompatActivity() {
                 Response.ErrorListener { error ->
                     Log.d("API", "error => $error")
                 }
-            ){
+            ) {
                 override fun getBody(): ByteArray {
                     return requestBody.toByteArray(Charset.defaultCharset())
                 }
@@ -112,6 +114,7 @@ class ActivityMeal : AppCompatActivity() {
         inflater.inflate(R.menu.menu_toolbar, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle presses on the action bar menu items
         when (item.itemId) {
@@ -120,10 +123,11 @@ class ActivityMeal : AppCompatActivity() {
                 return true
             }
             R.id.bluetooth -> {
+                val intent = Intent(this, BLEActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this@ActivityMeal, "Bluetooth", Toast.LENGTH_SHORT).show()
                 return true
             }
-
         }
         return super.onOptionsItemSelected(item)
     }

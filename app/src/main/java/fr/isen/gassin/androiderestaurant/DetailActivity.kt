@@ -1,6 +1,9 @@
 package fr.isen.gassin.androiderestaurant
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -17,6 +20,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var button: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,9 +28,11 @@ class DetailActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        var somme = 1
         val actionBar = supportActionBar
 
-        button = findViewById(R.id.buttonTotal);
+        button = findViewById(R.id.buttonTotal)
+       // button = findViewById(R.id.buttonPlus)
         button.setOnClickListener{
             val snackbar = Snackbar.make(it, "Produit ajouté au panier", Snackbar.LENGTH_LONG)
             snackbar.show()}
@@ -35,12 +41,28 @@ class DetailActivity : AppCompatActivity() {
 
         binding.detailTitle.text = item.name_fr
         binding.detailIngredient.text = item.ingredients.joinToString(", "){it.name_fr}
-        binding.buttonTotal.text = item.prices.joinToString(", "){"Total: "+ it.price.toString()}
+        binding.buttonTotal.text = item.prices.joinToString(", "){"Ajouter au panier: "+ it.price.toString()}
 
         val carousselAdapter = CarouselAdapter(this, item.images)
 
         binding.detailSlider.adapter = carousselAdapter
 
+        binding.buttonPlus.setOnClickListener()
+        {
+            somme++
+            Log.i("somme", somme.toString())
+            display(somme, somme * item.prices[0].price.toFloat())
+        }
+
+        binding.buttonMoins.setOnClickListener()
+        {
+
+            if (somme > 1) {
+                somme--
+                Log.i("somme", somme.toString())
+                display(somme, somme * item.prices[0].price.toFloat())
+            }
+        }
 
     }
 
@@ -58,12 +80,20 @@ class DetailActivity : AppCompatActivity() {
                 return true
             }
             R.id.bluetooth -> {
+                val intent = Intent(this, BLEActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this@DetailActivity, "Bluetooth", Toast.LENGTH_SHORT).show()
                 return true
             }
 
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    @SuppressLint("setTextI18n")
+    private fun display(somme: Int, price: Float) {
+        binding.quantityText.text = somme.toString()
+        binding.buttonTotal.text = "Ajouter au panier: " + price.toString() + "€"
     }
 
 

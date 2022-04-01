@@ -10,10 +10,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val secondActivityBtn = findViewById<View>(R.id.button) //récupère id bouton
+        val secondActivityBtn = findViewById<View>(R.id.button)//récupère id bouton
+        val bleBtn = findViewById<View>(R.id.bleBtn)
 
         secondActivityBtn.setOnClickListener() {
             val intent = Intent(this, ActivityHome::class.java)
+            startActivity(intent)
+        }
+
+        bleBtn.setOnClickListener(){
+            val intent = Intent(this, BLEActivity::class.java)
             startActivity(intent)
         }
     }

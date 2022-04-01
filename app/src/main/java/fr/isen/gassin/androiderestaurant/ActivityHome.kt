@@ -67,6 +67,8 @@ class ActivityHome : AppCompatActivity() {
                 return true
             }
             R.id.bluetooth -> {
+                val intent = Intent(this, BLEActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this@ActivityHome, "Bluetooth", Toast.LENGTH_SHORT).show()
                 return true
             }
