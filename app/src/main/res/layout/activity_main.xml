@@ -22,15 +22,15 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
+        android:layout_marginTop="50dp"
         android:text="Restaurant"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageMain" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageMain"
         android:layout_width="237dp"
         android:layout_height="297dp"
         android:layout_marginTop="188dp"
@@ -38,18 +38,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mister_v" />
-
-    <Button
-        android:id="@+id/bleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#288BE3"
-        android:backgroundTint="#2196F3"
-        android:text="BLE"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,23 @@
     <string name="button_dessert">Desserts</string>
     <string name="category">Catégorie</string>
     <string name="bon_appetit">Buon appetito!</string>
-    <string name="ble_device_disconnected">connecte</string>
-    <string name="ble_device_connected">connecte2</string>
+    <string name="ble_device_disconnected">pas connecté</string>
+    <string name="ble_device_connected">connecté</string>
+
+    <string name="spFileName">SharedPreferences</string>
+    <string name="spTotalQuantity">totalBasketQuantity</string>
+    <string name="spTotalPrice">totalBasketPrice</string>
+    <string name="spUserId">userId</string>
+
+    <string name="basketTitle">Votre panier</string>
+    <string name="basketButtonBuy">Passer la commande</string>
+    <string name="basketIconDeleteContentDescription">Button de suppression d\'un item</string>
+    <string name="basketButtonDeleteAllContentDescription">Button de suppression de tout le panier</string>
+    <string name="basketDeleteAllTxt">Votre panier a été supprimé</string>
+    <string name="quantity">Quantité : </string>
+    <string name="basketTotalQuantity">Quantité totale : </string>
+    <string name="totalPrice">Total : </string>
+
     <string-array name="items_list">
         <item>Pizza</item>
         <item>Pâtes</item>

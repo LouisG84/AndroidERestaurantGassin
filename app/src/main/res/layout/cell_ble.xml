@@ -26,7 +26,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/adressDevice"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Device Unknown" />
 
     <TextView
         android:id="@+id/rssiText"
@@ -35,6 +36,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="32dp"
         android:text="1"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nameDevice"
         app:layout_constraintTop_toTopOf="parent" />

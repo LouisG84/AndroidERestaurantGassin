@@ -14,7 +14,8 @@ import fr.isen.gassin.androiderestaurant.model.Data
 import fr.isen.gassin.androiderestaurant.model.Item
 import java.util.ArrayList
 
-internal class CategoryAdapter(val data: ArrayList<Item>, val clickListener: (Item) -> Unit) : RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
+internal class CategoryAdapter(val data: ArrayList<Item>,
+                               val clickListener: (Item) -> Unit) : RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
 
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var itemTextView: TextView = view.findViewById(R.id.categoryTitle)
@@ -41,12 +42,11 @@ internal class CategoryAdapter(val data: ArrayList<Item>, val clickListener: (It
             .fit().centerCrop()
             .into(holder.image)
 
-
         holder.itemView.setOnClickListener{
             clickListener(item)
-
         }
     }
     override fun getItemCount(): Int {
         return data.size
-    }}
+    }
+}

@@ -30,8 +30,13 @@ class BLEAdapter(val data: ArrayList<ScanResult>, val result: (BluetoothDevice) 
         Log.i("XXX", "onBindViewHolder")
         val result = data[position]
         holder.adresse.text = result.device.address
-        holder.name.text = result.device.name
-        holder.name.text = "Unknown"
+        if (result.device.name  == null){
+            holder.name.text = "Unknown"
+        }
+        else{
+            holder.name.text = result.device.name
+        }
+
         holder.rssi.text = result.rssi.toString()
 
         holder.itemView.setOnClickListener {

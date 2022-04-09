@@ -28,8 +28,7 @@ class BLEActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBleactivityBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         when {
             bluetoothAdapter?.isEnabled == true ->
@@ -52,11 +51,12 @@ class BLEActivity : AppCompatActivity() {
             intent.putExtra(DEVICE_KEY, it)
             startActivity(intent)
         }
-/*
-        binding.deviceList.layoutManager = LinearLayoutManager(applicationContext)
-        adapter = BLEAdapter(arrayListOf(), {})
         binding.deviceList.adapter = adapter
-*/
+
+        //binding.deviceList.layoutManager = LinearLayoutManager(applicationContext)
+        //adapter = BLEAdapter(arrayListOf(), {})
+
+
     }
 
 

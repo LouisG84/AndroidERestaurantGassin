@@ -16,7 +16,6 @@ class ActivityHome : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         
         binding = ActivityHomeBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
         val actionBar = supportActionBar
@@ -63,6 +62,8 @@ class ActivityHome : AppCompatActivity() {
         // Handle presses on the action bar menu items
         when (item.itemId) {
             R.id.panier -> {
+                val intent = Intent(this, BasketActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this@ActivityHome, "Panier", Toast.LENGTH_SHORT).show()
                 return true
             }

@@ -22,7 +22,7 @@ import java.nio.charset.Charset
 
 class ActivityMeal : AppCompatActivity() {
     private lateinit var binding: ActivityMealBinding
-    private var itemsList = ArrayList<Item>()
+    private var ListItem = ArrayList<Item>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,7 +40,7 @@ class ActivityMeal : AppCompatActivity() {
         val items = resources.getStringArray(R.array.items_list).toList() as ArrayList
 
         binding.itemsList.layoutManager = LinearLayoutManager(applicationContext)
-        binding.itemsList.adapter = CategoryAdapter(itemsList) {
+        binding.itemsList.adapter = CategoryAdapter(ListItem) {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra(ITEM_KEY, it)
             startActivity(intent)
@@ -119,6 +119,8 @@ class ActivityMeal : AppCompatActivity() {
         // Handle presses on the action bar menu items
         when (item.itemId) {
             R.id.panier -> {
+                val intent = Intent(this, BasketActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this@ActivityMeal, "Panier", Toast.LENGTH_SHORT).show()
                 return true
             }
