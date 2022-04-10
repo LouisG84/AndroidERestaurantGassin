@@ -18,7 +18,6 @@ internal class BasketAdapter(val panier: List<BasketItem>,
         var quantity: TextView = view.findViewById(R.id.quantiteBasketPlat)
         val imagePlat: ImageView = view.findViewById(R.id.imageBasketPlat)
         val price: TextView = view.findViewById(R.id.prixBasket)
-        val plus: ImageView = view.findViewById(R.id.plusBasket)
         val moins: ImageView = view.findViewById(R.id.moinsBasket)
     }
 
@@ -43,7 +42,7 @@ internal class BasketAdapter(val panier: List<BasketItem>,
             .into(holder.imagePlat)
 
 
-        val price = " Total : ${item.article.prices[0].price.toFloat() * item.quantity} €"
+        val price = "${item.article.prices[0].price * item.quantity} €"
         holder.price.text = price
 
 

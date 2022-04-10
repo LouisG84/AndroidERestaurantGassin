@@ -2,17 +2,14 @@ package fr.isen.gassin.androiderestaurant
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
-import fr.isen.gassin.androiderestaurant.ActivityMeal.Companion.ITEM_KEY
 import fr.isen.gassin.androiderestaurant.databinding.ActivityBasketBinding
 import fr.isen.gassin.androiderestaurant.model.Basket
 import fr.isen.gassin.androiderestaurant.model.BasketItem
-import fr.isen.gassin.androiderestaurant.model.Item
 import java.io.File
 
 class BasketActivity : AppCompatActivity() {
@@ -46,27 +43,22 @@ class BasketActivity : AppCompatActivity() {
         ).getFloat(getString(R.string.spTotalPrice), 0.0f).toString() + " € "
         binding.basketPrixTotal.text = price
 
-/*
-        binding.basketButtonDeleteAll.setOnClickListener {
+
+        binding.deleteAll.setOnClickListener {
             deleteBasketData()
             finish()
             changeActivity()
         }
-
+/*
         binding.homeButton.setOnClickListener {
             finish()
             changeActivity()
         }
-
-        binding.basketButtonBuy.setOnClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://www.linkedin.com/in/luca-liccia/")
-                )
-            )
-        }
 */
+        binding.commande.setOnClickListener {
+            startActivity(Intent(this, ActivityCommande::class.java))
+        }
+
 /*
         binding.basketRecycler.layoutManager = LinearLayoutManager(applicationContext)
         binding.basketRecycler.adapter = CategoryAdapter(ListItem) {
@@ -86,21 +78,21 @@ class BasketActivity : AppCompatActivity() {
     private fun display(dishesList: List<BasketItem>) {
         binding.basketRecycler.layoutManager = LinearLayoutManager(this)
         binding.basketRecycler.adapter = BasketAdapter(dishesList) {
-            deleteDishBasket(it)
+            deleteArticle(it)
         }
     }
 
-    private fun deleteDishBasket(article: BasketItem) {
+    private fun deleteArticle(article: BasketItem) {
         val file = File(cacheDir.absolutePath + "/basket.json")
-        var dishesBasket: List<BasketItem> = ArrayList()
+        var platPanier: List<BasketItem> = ArrayList()
 
         if (file.exists()) {
-            dishesBasket = Gson().fromJson(file.readText(), Basket::class.java).data
-            dishesBasket = dishesBasket - article
+            platPanier = Gson().fromJson(file.readText(), Basket::class.java).data
+            platPanier = platPanier - article
             updateSharedPreferences(article.quantity, article.article.prices[0].price)
         }
 
-        file.writeText(Gson().toJson(Basket(dishesBasket)))
+        file.writeText(Gson().toJson(Basket(platPanier)))
 
         finish()
         this.recreate()

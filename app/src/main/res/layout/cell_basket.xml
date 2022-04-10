@@ -19,11 +19,15 @@
 
     <TextView
         android:id="@+id/nomBasketPlat"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/prixBasket"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageBasketPlat"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Nom Plat" />
@@ -33,8 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/basketTotalQuantity"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageBasketPlat"
         app:layout_constraintTop_toBottomOf="@+id/nomBasketPlat"
         tools:text="Quantite" />
@@ -44,33 +51,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/basketTotalQuantity"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/plusBasket"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/moinsBasket"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="20€" />
 
     <ImageView
-        android:id="@+id/plusBasket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/moinsBasket"
+        android:layout_width="30dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
-        android:fillColor="#33A502"
+        android:fillColor="#E60404"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prixBasket"
-        app:srcCompat="@drawable/ic_add" />
-
-    <ImageView
-        android:id="@+id/moinsBasket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:fillColor="#E60404"
-        app:layout_constraintEnd_toStartOf="@+id/plusBasket"
-        app:layout_constraintTop_toBottomOf="@+id/prixBasket"
         app:srcCompat="@drawable/ic_baseline_remove_circle_24" />
+
+    <TextView
+        android:id="@+id/separation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:height="3dp"
+        android:background="#616060"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@ class BLEDeviceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBledeviceBinding
     private var bluetoothGatt: BluetoothGatt? = null
 
+
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,10 +55,11 @@ class BLEDeviceActivity : AppCompatActivity() {
                 val bleServices =
                     gatt?.services?.map { BLEService(it.uuid.toString(), it.characteristics) }
                         ?: listOf()
-                val adapter = BLEServiceAdapter(bleServices)
+               val adapter = BLEServiceAdapter(bleServices.toMutableList())
                 runOnUiThread {
                     binding.serviceList.layoutManager = LinearLayoutManager(this@BLEDeviceActivity)
                     binding.serviceList.adapter = adapter
+
                 }
             }
 

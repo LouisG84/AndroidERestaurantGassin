@@ -32,7 +32,7 @@ class DetailActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        var somme = 1
+        val somme = 1
         val actionBar = supportActionBar
         actionBar!!.title = "Detail"
 
@@ -54,11 +54,10 @@ class DetailActivity : AppCompatActivity() {
 
         binding.detailSlider.adapter = carousselAdapter
 
-        addArticle(somme, item)
-        initDetail(item)
+        addArticle(item)
+
 
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -112,37 +111,46 @@ class DetailActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun initDetail(item: Item) {
+    private fun addArticle(item: Item) {
+        var somme = 0
+        binding.buttonPlus.setOnClickListener()
+        {
+            somme++
+            Log.i("somme", somme.toString())
+            display(somme, somme * item.prices[0].price)
+        }
 
-        var nbInBucket = 1
-        binding.buttonPlus.setOnClickListener {
-            addArticle(1, item)
-            nbInBucket += 1
+        binding.buttonMoins.setOnClickListener()
+        {
+
+            if (somme > 0) {
+                somme--
+                Log.i("somme", somme.toString())
+                display(somme, somme * item.prices[0].price)
+            }
         }
-        binding.buttonMoins.setOnClickListener {
-            addArticle(1, item)
-            if (nbInBucket==1){}
-            else{nbInBucket -= 1}
-        }
+
         binding.detailTitle.text = item.name_fr
 
         val txt = getString(R.string.totalPrice) + item.prices[0].price + " €"
         binding.buttonTotal.text = txt
 
         binding.buttonTotal.setOnClickListener {
-            Snackbar.make(
-                it, "Article(s) ajouté(s) au panier : " + nbInBucket + " " + binding.detailTitle.text,
-                Snackbar.LENGTH_LONG
-            ).setAction("Voir le panier"){
-                startActivity(Intent(this, BasketActivity::class.java))
+            if (somme >= 1 ) {
+                Snackbar.make(
+                    it,
+                    "Article(s) ajouté(s) au panier : " + somme + " " + binding.detailTitle.text,
+                    Snackbar.LENGTH_LONG
+                ).setAction("> Panier") {
+                    startActivity(Intent(this, BasketActivity::class.java))
+                }
+                    .show()
+                updateFile(BasketItem(item, somme))
+                updateSharedPreferences(somme, (item.prices[0].price * somme))
             }
-                .show()
-
-            //Toast.makeText(this, getString(R.string.add_to_basket), Toast.LENGTH_SHORT).show()
-            updateFile(BasketItem(item, nbInBucket))
-            updateSharedPreferences(nbInBucket, (item.prices[0].price.toFloat() * nbInBucket))
-            //finish()
-            //changeActivityToBasket()
+            else{
+                Snackbar.make(it, "Veuillez ajouter au moins un article", Snackbar.LENGTH_LONG ).show()
+            }
         }
     }
 
@@ -169,25 +177,6 @@ class DetailActivity : AppCompatActivity() {
         file.writeText(Gson().toJson(Basket(itemsBasket)))
     }
 
-    private fun addArticle(somme: Int, item: Item) {
-        var somme1 = somme
-        binding.buttonPlus.setOnClickListener()
-        {
-            somme1++
-            Log.i("somme", somme1.toString())
-            display(somme1, somme1 * item.prices[0].price.toFloat())
-        }
-
-        binding.buttonMoins.setOnClickListener()
-        {
-
-            if (somme1 > 1) {
-                somme1--
-                Log.i("somme", somme1.toString())
-                display(somme1, somme1 * item.prices[0].price.toFloat())
-            }
-        }
-    }
 
 
 }

@@ -28,4 +28,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/deleteAll"
+        android:layout_width="35dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/basketPrixTotal"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <ImageView
+        android:id="@+id/commande"
+        android:layout_width="41dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/basketPrixTotal"
+        app:srcCompat="@drawable/ic_baseline_arrow_circle_right_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

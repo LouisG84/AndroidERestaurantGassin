@@ -24,6 +24,9 @@
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ActivityCommande"
+            android:exported="false" />
+        <activity
             android:name=".BasketAdapter"
             android:exported="false" />
         <activity

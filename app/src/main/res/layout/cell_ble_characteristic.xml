@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:text="Ecrire"
         app:layout_constraintStart_toEndOf="@+id/buttonLire"
-        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicValue"
         tools:ignore="TouchTargetSizeCheck"
         tools:text="Ecrire" />
 
@@ -25,7 +25,7 @@
         android:layout_marginTop="16dp"
         android:text="Notif"
         app:layout_constraintStart_toEndOf="@+id/buttonEcrire"
-        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicValue"
         tools:ignore="TouchTargetSizeCheck"
         tools:text="Notif" />
 
@@ -57,8 +57,18 @@
         android:layout_marginTop="16dp"
         android:text="Lire"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicValue"
         tools:ignore="TouchTargetSizeCheck"
         tools:text="Lire" />
+
+    <TextView
+        android:id="@+id/characteristicValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characteristicUuid"
+        tools:text="characteristic Value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

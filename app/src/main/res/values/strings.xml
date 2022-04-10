@@ -24,6 +24,7 @@
     <string name="quantity">Quantité : </string>
     <string name="basketTotalQuantity">Quantité totale : </string>
     <string name="totalPrice">Total : </string>
+    <string name="priceItem"></string>
 
     <string-array name="items_list">
         <item>Pizza</item>
