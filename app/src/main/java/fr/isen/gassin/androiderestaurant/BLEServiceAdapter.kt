@@ -98,14 +98,6 @@ class BLEServiceAdapter(
 
 
 
-        /* val proprietiesMessage = "Proprietés : ${properties.joinToString()}"
-         holder.characteristicProperties.text = proprietiesMessage
-         characteristic.value?.let {
-             val hex = it.joinToString("") { byte -> "%02x".format(byte) }.uppercase(Locale.FRANCE)
-             val value = "Valeur : ${String(it)} Hex : 0x$hex"
-             holder.characteristicValue.visibility = View.VISIBLE
-             holder.characteristicValue.text = value
-         }*/
     }
 
     private fun addPropertyFromCharacteristic(

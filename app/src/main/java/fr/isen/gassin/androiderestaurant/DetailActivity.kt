@@ -177,6 +177,4 @@ class DetailActivity : AppCompatActivity() {
         file.writeText(Gson().toJson(Basket(itemsBasket)))
     }
 
-
-
 }

@@ -49,29 +49,12 @@ class BasketActivity : AppCompatActivity() {
             finish()
             changeActivity()
         }
-/*
-        binding.homeButton.setOnClickListener {
-            finish()
-            changeActivity()
-        }
-*/
+
         binding.commande.setOnClickListener {
             startActivity(Intent(this, ActivityCommande::class.java))
         }
 
-/*
-        binding.basketRecycler.layoutManager = LinearLayoutManager(applicationContext)
-        binding.basketRecycler.adapter = CategoryAdapter(ListItem) {
-            startActivity(intent)
-        }
 
-
-        val item = intent.getSerializableExtra(ITEM_KEY) as Item
-
-     //   binding..text = item.name_fr
-        //  binding.detailIngredient.text = item.ingredients.joinToString(", "){it.name_fr}
-        // binding.buttonTotal.text = item.prices.joinToString(", "){"Ajouter au panier: "+ it.price.toString()}
-*/
     }
 
 
